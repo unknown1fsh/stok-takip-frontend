@@ -65,57 +65,55 @@ const ParametreForm: React.FC<Props> = ({ selectedId, onSuccess }) => {
       <Typography variant="h6" gutterBottom>
         {selectedId ? 'Parametre Güncelle' : 'Yeni Parametre'}
       </Typography>
-      <TextField
-        label="Kategori"
-        name="kategori"
-        fullWidth
-        margin="dense"
-        value={form.kategori}
-        onChange={handleChange}
-      />
-      <TextField
-        label="Parametre Kodu"
-        name="parametreKodu"
-        fullWidth
-        margin="dense"
-        value={form.parametreKodu}
-        onChange={handleChange}
-      />
-      <TextField
-        label="Parametre Adı"
-        name="parametreAdi"
-        fullWidth
-        margin="dense"
-        value={form.parametreAdi}
-        onChange={handleChange}
-      />
-      <TextField
-        label="Değer"
-        name="deger"
-        fullWidth
-        margin="dense"
-        value={form.deger}
-        onChange={handleChange}
-      />
-      <TextField
-        label="Açıklama"
-        name="aciklama"
-        fullWidth
-        margin="dense"
-        value={form.aciklama}
-        onChange={handleChange}
-      />
-      <FormControlLabel
-        control={
-          <Switch
-            checked={form.aktif ?? true}
-            onChange={handleSwitch}
-            color="primary"
-          />
-        }
-        label="Aktif"
-      />
-      <Box mt={2}>
+      <Box display="flex" flexWrap="wrap" gap={2}>
+        <TextField
+          label="Kategori"
+          name="kategori"
+          value={form.kategori}
+          onChange={handleChange}
+          sx={{ flex: '1 1 180px', minWidth: 150 }}
+        />
+        <TextField
+          label="Parametre Kodu"
+          name="parametreKodu"
+          value={form.parametreKodu}
+          onChange={handleChange}
+          sx={{ flex: '1 1 180px', minWidth: 150 }}
+        />
+        <TextField
+          label="Parametre Adı"
+          name="parametreAdi"
+          value={form.parametreAdi}
+          onChange={handleChange}
+          sx={{ flex: '2 1 320px', minWidth: 180 }}
+        />
+        <TextField
+          label="Değer"
+          name="deger"
+          value={form.deger}
+          onChange={handleChange}
+          sx={{ flex: '1 1 180px', minWidth: 150 }}
+        />
+        <TextField
+          label="Açıklama"
+          name="aciklama"
+          value={form.aciklama}
+          onChange={handleChange}
+          sx={{ flex: '2 1 320px', minWidth: 180 }}
+        />
+        <FormControlLabel
+          control={
+            <Switch
+              checked={form.aktif ?? true}
+              onChange={handleSwitch}
+              color="primary"
+            />
+          }
+          label="Aktif"
+          sx={{ flex: '1 1 120px', minWidth: 120, alignSelf: 'center' }}
+        />
+      </Box>
+      <Box mt={3}>
         <Button variant="contained" color="primary" onClick={handleSubmit}>
           Kaydet
         </Button>

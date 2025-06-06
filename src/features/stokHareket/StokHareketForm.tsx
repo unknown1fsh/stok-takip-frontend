@@ -67,83 +67,77 @@ const StokHareketForm: React.FC<Props> = ({ selectedId, onSuccess }) => {
       <Typography variant="h6" gutterBottom>
         {selectedId ? 'Stok Hareket Güncelle' : 'Yeni Stok Hareket'}
       </Typography>
-      <TextField
-        select
-        label="Hareket Tipi"
-        name="hareketTipi"
-        fullWidth
-        margin="dense"
-        value={form.hareketTipi}
-        onChange={handleSelect}
-      >
-        {Object.values(HareketTipi).map((tip) => (
-          <MenuItem key={tip} value={tip}>{tip}</MenuItem>
-        ))}
-      </TextField>
-      <TextField
-        label="Stok Kart ID"
-        name="stokKartId"
-        type="number"
-        fullWidth
-        margin="dense"
-        value={form.stokKartId}
-        onChange={handleChange}
-      />
-      <TextField
-        label="Depo ID"
-        name="depoId"
-        type="number"
-        fullWidth
-        margin="dense"
-        value={form.depoId}
-        onChange={handleChange}
-      />
-      <TextField
-        label="Miktar"
-        name="miktar"
-        type="number"
-        fullWidth
-        margin="dense"
-        value={form.miktar}
-        onChange={handleChange}
-      />
-      <TextField
-        label="Birim Fiyat"
-        name="birimFiyat"
-        type="number"
-        fullWidth
-        margin="dense"
-        value={form.birimFiyat}
-        onChange={handleChange}
-      />
-      <TextField
-        label="Toplam Tutar"
-        name="toplamTutar"
-        type="number"
-        fullWidth
-        margin="dense"
-        value={form.toplamTutar}
-        onChange={handleChange}
-      />
-      <TextField
-        label="Tarih"
-        name="tarih"
-        type="date"
-        fullWidth
-        margin="dense"
-        value={form.tarih}
-        onChange={handleChange}
-        InputLabelProps={{ shrink: true }}
-      />
-      <TextField
-        label="Açıklama"
-        name="aciklama"
-        fullWidth
-        margin="dense"
-        value={form.aciklama}
-        onChange={handleChange}
-      />
-      <Box mt={2}>
+      <Box display="flex" flexWrap="wrap" gap={2}>
+        <TextField
+          select
+          label="Hareket Tipi"
+          name="hareketTipi"
+          value={form.hareketTipi}
+          onChange={handleSelect}
+          sx={{ flex: '1 1 180px', minWidth: 150 }}
+        >
+          {Object.values(HareketTipi).map((tip) => (
+            <MenuItem key={tip} value={tip}>{tip}</MenuItem>
+          ))}
+        </TextField>
+        <TextField
+          label="Stok Kart ID"
+          name="stokKartId"
+          type="number"
+          value={form.stokKartId}
+          onChange={handleChange}
+          sx={{ flex: '1 1 150px', minWidth: 120 }}
+        />
+        <TextField
+          label="Depo ID"
+          name="depoId"
+          type="number"
+          value={form.depoId}
+          onChange={handleChange}
+          sx={{ flex: '1 1 150px', minWidth: 120 }}
+        />
+        <TextField
+          label="Miktar"
+          name="miktar"
+          type="number"
+          value={form.miktar}
+          onChange={handleChange}
+          sx={{ flex: '1 1 120px', minWidth: 100 }}
+        />
+        <TextField
+          label="Birim Fiyat"
+          name="birimFiyat"
+          type="number"
+          value={form.birimFiyat}
+          onChange={handleChange}
+          sx={{ flex: '1 1 120px', minWidth: 100 }}
+        />
+        <TextField
+          label="Toplam Tutar"
+          name="toplamTutar"
+          type="number"
+          value={form.toplamTutar}
+          onChange={handleChange}
+          sx={{ flex: '1 1 120px', minWidth: 100 }}
+        />
+        <TextField
+          label="Tarih"
+          name="tarih"
+          type="date"
+          value={form.tarih}
+          onChange={handleChange}
+          InputLabelProps={{ shrink: true }}
+          sx={{ flex: '1 1 160px', minWidth: 120 }}
+        />
+        <TextField
+          label="Açıklama"
+          name="aciklama"
+          value={form.aciklama}
+          onChange={handleChange}
+          sx={{ flex: '2 1 320px', minWidth: 180 }}
+        />
+      </Box>
+      <Box mt={3}>
         <Button variant="contained" color="primary" onClick={handleSubmit}>
           Kaydet
         </Button>

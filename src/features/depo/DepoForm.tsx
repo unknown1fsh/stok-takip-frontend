@@ -64,43 +64,41 @@ const DepoForm: React.FC<Props> = ({ selectedId, onSuccess }) => {
         {selectedId ? 'Depo Güncelle' : 'Yeni Depo'}
       </Typography>
 
-      <TextField
-        label="Depo Kodu"
-        name="depoKodu"
-        fullWidth
-        margin="dense"
-        value={form.depoKodu}
-        onChange={handleChange}
-      />
-      <TextField
-        label="Depo Adı"
-        name="depoAdi"
-        fullWidth
-        margin="dense"
-        value={form.depoAdi}
-        onChange={handleChange}
-      />
-      <TextField
-        label="Sorumlu"
-        name="sorumlu"
-        fullWidth
-        margin="dense"
-        value={form.sorumlu}
-        onChange={handleChange}
-      />
-
-      <FormControlLabel
-        control={
-          <Switch
-            checked={form.aktif ?? true}
-            onChange={handleSwitch}
-            color="primary"
-          />
-        }
-        label="Aktif"
-      />
-
-      <Box mt={2}>
+      <Box display="flex" flexWrap="wrap" gap={2}>
+        <TextField
+          label="Depo Kodu"
+          name="depoKodu"
+          value={form.depoKodu}
+          onChange={handleChange}
+          sx={{ flex: '1 1 200px', minWidth: 180 }}
+        />
+        <TextField
+          label="Depo Adı"
+          name="depoAdi"
+          value={form.depoAdi}
+          onChange={handleChange}
+          sx={{ flex: '2 1 320px', minWidth: 200 }}
+        />
+        <TextField
+          label="Sorumlu"
+          name="sorumlu"
+          value={form.sorumlu}
+          onChange={handleChange}
+          sx={{ flex: '1 1 200px', minWidth: 180 }}
+        />
+        <FormControlLabel
+          control={
+            <Switch
+              checked={form.aktif ?? true}
+              onChange={handleSwitch}
+              color="primary"
+            />
+          }
+          label="Aktif"
+          sx={{ flex: '1 1 120px', minWidth: 120, alignSelf: 'center' }}
+        />
+      </Box>
+      <Box mt={3}>
         <Button variant="contained" color="primary" onClick={handleSubmit}>
           Kaydet
         </Button>
